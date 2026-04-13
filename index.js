@@ -28,6 +28,13 @@ function createItem(item) {
   	const duplicateButton = clone.querySelector(".to-do__item-button_type_duplicate");
   	const editButton = clone.querySelector(".to-do__item-button_type_edit");
 	textElement.textContent = item;
+	duplicateButton.addEventListener("click", function() {
+    const itemName = textElement.textContent;
+    const newItem = createItem(itemName);
+    listElement.prepend(newItem);
+    const items = getTasksFromDOM();
+    saveTasks(items);
+});
 	deleteButton.addEventListener("click", function() {
 		clone.remove();
 		const items = getTasksFromDOM();
