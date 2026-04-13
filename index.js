@@ -40,3 +40,11 @@ items.forEach(function(item) {
 	const taskElement = createItem(item);
 	listElement.append(taskElement);
 });
+
+formElement.addEventListener("submit", function(event){
+	event.preventDefault();
+	const taskText = inputElement.value;
+	const taskElement=createItem(taskText);
+	listElement.prepend(taskElement);
+	inputElement.value = "";
+});
