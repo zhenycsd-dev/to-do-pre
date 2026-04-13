@@ -12,7 +12,7 @@ const formElement = document.querySelector(".to-do__form");
 const inputElement = document.querySelector(".to-do__input");
 
 function loadTasks() {
-
+	return items;
 }
 
 function createItem(item) {
@@ -33,3 +33,9 @@ function saveTasks(tasks) {
 
 }
 
+items = loadTasks();
+
+items.forEach(function(item) {
+	const taskElement = createItem(item);
+	listElement.append(taskElement);
+});
